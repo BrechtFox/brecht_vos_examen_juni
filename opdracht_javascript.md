@@ -40,7 +40,7 @@ Je mag wél tutorials volgen, documentatie raadplegen, Stack Overflow gebruiken 
 - Aantrekkelijke, **responsieve** HTML + CSS (denk aan CRAP: Contrast, Repetition, Alignment, Proximity)
 - Gebruik **localStorage** om alles lokaal op te slaan
 - Pas de **DOM actief aan** (items toevoegen, verwijderen, updaten)
-- Voeg idealiter een **bewerk-functie** toe (potloodje / edit-knop)
+- Voeg idealiter een **bewerk-functie** toe (potloodje / edit-knop) (**BONUS**)
 - Schrijf voldoende **functies** en wissel af tussen klassieke `function` en arrow functions `() =>`
 - Werk met **arrays van objecten**
 - Pas verschillende array-methodes toe (push, splice, sort, filter, map, reduce…)

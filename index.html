@@ -6,19 +6,39 @@
     <title>Collectie</title>
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <!-- icon is made by chatgpt, prompt: hey, can you generate an image for me, an icon for a "slotrace collection tracker", like a favicon, don't make it too detailed -->
+    <link rel="stylesheet" href="css/styles.css">
 </head>
+
 <body>
     <header>
-        <h1>Slotrace Collectie Tracker</h1>
-        <ul>
-            <li class="active">Collectie</li>
-            <li>Items toevoegen</li>
-        </ul>
+        <img src="img/logo.png" alt="Slotcar Collection Tracker">
+        <nav>
+            <ul>
+                <li class="active"><a href="index.html">Mijn Collectie</a></li>
+                <li><a href="add.html">Items Toevoegen</a></li>
+            </ul>
+        </nav>
     </header>
+
     <main>
-        <h2>Collectie</h2>
+        <h2>Mijn Collectie</h2>
         <p class="empty">Je hebt nog geen items aan je collectie toegevoegd.</p>
         <section class="items"></section>
+        <ul class="statistics">
+            <li class="collection-value">Collectie waarde:&nbsp;</li>
+        </ul>
     </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2026 Slotcar Collection Tracker</p>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Mijn Collectie</a></li>
+                    <li><a href="add.html">Items Toevoegen</a></li>
+                </ul>
+            </nav>
+        </div>
+    </footer>
 </body>
 </html>
