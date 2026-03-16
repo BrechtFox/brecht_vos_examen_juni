@@ -57,9 +57,9 @@ Voorbeeld van een auto-object:
   klasse: "minicar",
   merk: "mini",
   schaal: "1:24",
-  prijs: 49.99,
   kleur: "Rood",
-  status: "nieuw"
+  status: "nieuw",
+  prijs: 49.99
 }
 ```
 

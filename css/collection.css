@@ -1,0 +1,54 @@
+:root {
+    --primary-white: #fff;
+    --primary-blue: #00d;
+    --secondary-blue: #00a;
+    --text-blue: #00f;
+    --primary-orange: #f50;
+    --text-orange: #f60;
+    --status-green: #3b3;
+    --status-orange: #f70;
+    --status-red: #d00;
+}
+
+main {
+    width: 100vw;
+}
+
+main h2 {
+    text-align: center;
+}
+
+section.items {
+    padding: 1em;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1em;
+}
+
+section.items article {
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    padding: 1em;
+    background: white;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+section.items article {
+    color: var(--primary-white);
+}
+
+section.items article h3.maker {
+    text-align: center;
+}
+
+section.items article.new {
+    background-color: var(--status-green);
+}
+
+section.items article.used {
+    background-color: var(--status-orange);
+}
+
+section.items article.damaged {
+    background-color: var(--status-red);
+}

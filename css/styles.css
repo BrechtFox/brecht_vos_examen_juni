@@ -24,7 +24,6 @@ header {
     display: flex;
     flex-direction: row;
     background-color: var(--primary-blue);
-    padding: 1em;
     width: 100vw;
     justify-content: space-between;
 }
@@ -43,6 +42,7 @@ header ul {
     padding-left: 0;
     width: 100%;
     display: flex;
+    gap: 16px;
 }
 
 header li {
@@ -80,29 +80,10 @@ main {
 
 footer {
     background-color: var(--primary-blue);
+    padding: 0.5em;
 }
 
 footer p {
-    padding-top: 1em;
     text-align: center;
     color: var(--primary-white);
-}
-
-footer ul {
-    list-style: none;
-    padding: 1em;
-    display: flex;
-    width: 100%;
-}
-
-footer li {
-    flex-grow: 1;
-    width: 100%;
-    flex-shrink: 1;
-    text-align: center;
-}
-
-footer li a {
-    text-decoration: none;
-    color: var(--text-orange);
 }
