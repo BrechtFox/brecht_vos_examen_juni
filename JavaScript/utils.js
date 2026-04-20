@@ -1,4 +1,4 @@
-export const updateLS = (lijst) => {
-    localStorage.removeItem('opgeslagenCitaten');
-    localStorage.setItem('opgeslagenCitaten', JSON.stringify(lijst));
+export const updateLS = (list) => {
+    localStorage.removeItem('savedSlotcars');
+    localStorage.setItem('savedSlotcars', JSON.stringify(list));
 };
