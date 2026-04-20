@@ -8,38 +8,42 @@
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <!-- icon is made by chatgpt, prompt: hey, can you generate an image for me, an icon for a "slotrace collection tracker", like a favicon, don't make it too detailed -->
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/add.css">
 </head>
 
 <body>
     <header>
-        <img src="img/logo.png" alt="Slotcar Collection Tracker">
-        <nav>
-            <ul>
-                <li><a href="index.html">Mijn Collectie</a></li>
-                <li class="active"><a href="add.html">Items Toevoegen</a></li>
-            </ul>
-        </nav>
+        <div class="wrapper">
+            <img src="img/logo.png" alt="Slotcar Collection Tracker">
+            <nav>
+                <ul>
+                    <li><a href="index.html">Mijn Collectie</a></li>
+                    <li class="active"><a href="add.html">Items Toevoegen</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
     <main>
+        <h1>Items Toevoegen</h1>
         <div>
             <form>
                 <label for="maker">Maker:</label>
-                <input type="text" name="maker" id="maker"><br>
+                <input type="text" name="maker" id="maker" required>
                 <label for="klasse">Klasse:</label>
-                <input type="text" name="klasse" id="klasse"><br>
+                <input type="text" name="klasse" id="klasse" required>
                 <label for="merk">Merk:</label>
-                <input type="text" name="merk" id="merk"><br>
+                <input type="text" name="merk" id="merk" required>
                 <label for="schaal">Schaal:</label>
-                <input type="text" name="schaal" id="schaal"><br>
+                <input type="text" name="schaal" id="schaal" required>
                 <label for="kleur">Kleur:</label>
-                <input type="text" name="kleur" id="kleur"><br>
+                <input type="text" name="kleur" id="kleur" required>
                 <label for="staat">Staat:</label>
-                <select name="staat" id="staat">
-                    <option value="nieuw">Nieuw</option>
-                    <option value="gebruikt">Gebruikt</option>
-                    <option value="beschadigd">Beschadigd</option>
-                </select><br>
+                <select name="staat" id="staat" required>
+                    <option value="new">Nieuw</option>
+                    <option value="used">Gebruikt</option>
+                    <option value="damaged">Beschadigd</option>
+                </select>
                 <input type="submit" value="Toevoegen aan collectie">
             </form>
         </div>
@@ -48,6 +52,7 @@
     <footer>
         <div class="footer-content">
             <p>&copy; 2026 Slotcar Collection Tracker</p>
+            <p>Built for collectors</p>
         </div>
     </footer>
 </body>

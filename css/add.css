@@ -1,0 +1,36 @@
+main {
+    width: 100%;
+}
+
+main h1 {
+    text-align: center;
+    padding: 0.25em;
+}
+
+main div {
+    display: flex;
+    justify-content: center;
+}
+
+main form {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--form-background-blue);
+    border: 2px solid var(--form-border-orange);
+    padding: 1em;
+    border-radius: 16px;
+    width: 90%;
+    margin: 2em
+}
+
+main form input,
+main form select {
+    margin-bottom: 1em;
+    padding: 0.5em ;
+}
+
+@media (min-width: 800px) {
+    main form {
+        width: 720px
+    }
+}
