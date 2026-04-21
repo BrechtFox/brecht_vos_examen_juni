@@ -30,22 +30,26 @@
         <div>
             <form>
                 <label for="maker">Maker:</label>
-                <input type="text" name="maker" id="maker" required>
-                <label for="klasse">Klasse:</label>
-                <input type="text" name="klasse" id="klasse" required>
-                <label for="merk">Merk:</label>
-                <input type="text" name="merk" id="merk" required>
-                <label for="schaal">Schaal:</label>
-                <input type="text" name="schaal" id="schaal" required>
-                <label for="kleur">Kleur:</label>
-                <input type="text" name="kleur" id="kleur" required>
-                <label for="staat">Staat:</label>
-                <select name="staat" id="staat" required>
+                <input type="text" name="maker" id="maker">
+                <label for="car-class">Klasse:</label>
+                <input type="text" name="car-class" id="car-class">
+                <label for="brand">Merk:</label>
+                <input type="text" name="brand" id="brand">
+                <label for="scale">Schaal:</label>
+                <input type="text" name="scale" id="scale">
+                <label for="color">Kleur:</label>
+                <input type="text" name="color" id="color">
+                <label for="price">prijs:</label>
+                <input type="number" name="price" id="price">
+                <label for="state">Staat:</label>
+                <select name="state" id="state">
                     <option value="new">Nieuw</option>
                     <option value="used">Gebruikt</option>
                     <option value="damaged">Beschadigd</option>
                 </select>
                 <input type="submit" value="Toevoegen aan collectie">
+                <div id="message">
+                </div>
             </form>
         </div>
     </main>

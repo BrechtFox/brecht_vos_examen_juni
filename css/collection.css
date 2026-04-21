@@ -11,6 +11,10 @@ main p.empty {
     padding: 1em;
 }
 
+main p.empty.hide {
+    display: none;
+}
+
 section.items {
     padding: 1em;
     display: grid;
@@ -48,6 +52,20 @@ section.items article.used {
 
 section.items article.damaged {
     background-color: var(--status-red);
+}
+
+.delete-btn {
+    margin-top: 0.5em;
+    padding: 0.5em;
+    border: none;
+    background: red;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.delete-btn:hover {
+    background: darkred;
 }
 
 ul.statistics {

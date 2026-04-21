@@ -76,7 +76,7 @@ header .wrapper li a {
     font-size: 1.25em;
     font-weight: bold;
     display: block;
-    padding: 1em;
+    
 }
 
 header .wrapper li.active a {
@@ -95,6 +95,12 @@ footer {
 footer p {
     text-align: center;
     color: var(--primary-white);
+}
+
+@media (min-width: 500px) {
+    header .wrapper li a {
+        padding: 1em;
+    }
 }
 
 @media (min-width: 800px) {
