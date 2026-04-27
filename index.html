@@ -24,14 +24,86 @@
         </div>
     </header>
 
+    <form class="sort">
+        <legend>Sorteer</legend>
+        <Label>
+            <input type="radio" name="sort" value="price-asc" checked>
+            Prijs (laag -> hoog)
+        </Label>
+        <br>
+        <label>
+            <input type="radio" name="sort" value="price-desc">
+            Prijs (hoog -> laag)
+        </label>
+    </form>
+
+    <form class="filter">
+        <legend>Filteren</legend>
+        <p>Makers</p>
+        <label>
+            <input id="brm" type="checkbox" name="maker-filter" value="BRM">
+            BRM
+        </label>
+        <br>
+        <label>
+            <input id="scaleauto" type="checkbox" name="maker-filter" value="ScaleAuto">
+            ScaleAuto
+        </label>
+        <br>
+        <label>
+            <input id="gecko" type="checkbox" name="maker-filter" value="Gecko">
+            Gecko
+        </label>
+        <p>Klassen</p>
+        <label>
+            <input type="checkbox" name="class-filter" value="minicar">
+            minicar
+        </label>
+        <br>
+        <label>
+            <input type="checkbox" name="class-filter" value="youngtimer">
+            youngtimer
+        </label>
+        <br>
+        <label>
+            <input type="checkbox" name="class-filter" value="GT-pro">
+            GT-pro
+        </label>
+        <p>Merk</p>
+        <label>
+            <input type="checkbox" name="brand-filter" value="porsche">
+            Porsche
+        </label>
+        <br>
+        <label>
+            <input type="checkbox" name="brand-filter" value="mini">
+            Mini
+        </label>
+        <br>
+        <label>
+            <input type="checkbox" name="brand-filter" value="viper">
+            Viper
+        </label>
+        <p>Schaal</p>
+        <label>
+            <input type="checkbox" name="scale-filter" value="1:24">
+            1:24
+        </label>
+        <br>
+        <label>
+            <input type="checkbox" name="scale-filter" value="1:32">
+            1:32
+        </label>
+    </form>
+
     <main>
         <h1>Mijn Collectie</h1>
         <section class="items">
         </section>
         <ul class="statistics">
-            <li class="collection-size">Collectie grootte:&nbsp;</li>
-            <li class="collection-value">Collectie waarde:&nbsp;</li>
-            <li class="most-expensive-item">Duurste item:&nbsp;</li>
+            <li class="collection-size">Collectie grootte:</li>
+            <li class="collection-value">Collectie waarde:</li>
+            <li class="average-price">Gemiddelde prijs:</li>
         </ul>
     </main>
 

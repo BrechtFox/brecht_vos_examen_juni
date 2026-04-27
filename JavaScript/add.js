@@ -1,21 +1,29 @@
 import { updateLS } from "./utils.js";
 
+// Load existing slotcars from localStorage
 let allSlotcars = JSON.parse(localStorage.getItem('savedSlotcars')) || [];
 
+// Handle form submission
 document.querySelector('form').addEventListener('submit', (e) => {
     e.preventDefault();
-    add()
+    add();
 });
 
+// Shows success/error messages in the UI
 function showMessage(type, message) {
-    document.querySelector('#message').innerHTML = `<p class="${type}">${message}</p>`
+    document.querySelector('#message').innerHTML =
+        `<p class="${type}">${message}</p>`;
 }
 
+// Adds a new slotcar to the collection
 function add() {
-    // newId made by chatGPT
+
+    // Generate new ID based on highest existing ID
     let newId = allSlotcars.length > 0
-    ? Math.max(...allSlotcars.map(item => item.id)) + 1
-    : 1;
+        ? Math.max(...allSlotcars.map(item => item.id)) + 1
+        : 1;
+
+    // Create new slotcar object from form inputs
     const newSlotcar = {
         maker: document.querySelector('#maker').value,
         carClass: document.querySelector('#car-class').value,
@@ -25,29 +33,48 @@ function add() {
         price: document.querySelector('#price').value,
         state: document.querySelector('#state').value,
         id: newId
-    }
-    if (newSlotcar.maker && newSlotcar.carClass && newSlotcar.brand && newSlotcar.scale && newSlotcar.color && newSlotcar.price && newSlotcar.state) {
+    };
+
+    // Validate that all fields are filled in
+    if (newSlotcar.maker && newSlotcar.carClass && newSlotcar.brand &&
+        newSlotcar.scale && newSlotcar.color &&
+        newSlotcar.price && newSlotcar.state) {
+
+        // Validate maker
         if (["BRM", "ScaleAuto", "Gecko"].includes(newSlotcar.maker)) {
-            if (["minicar", "youngtimer", "GT pro"].includes(newSlotcar.carClass)) {
+
+            // Validate car class
+            if (["minicar", "youngtimer", "GT-pro"].includes(newSlotcar.carClass)) {
+
+                // Validate brand
                 if (["mini", "viper", "porsche"].includes(newSlotcar.brand)) {
+
+                    // Validate scale
                     if (["1:24", "1:32"].includes(newSlotcar.scale)) {
-                        
+
+                        // Add to array and save
                         allSlotcars.push(newSlotcar);
                         updateLS(allSlotcars);
+
                         showMessage("success", "Nieuwe slotcar toegevoegd.");
+
                     } else {
                         showMessage("error", "Schaal bestaat niet, nieuwe slotcar niet toegevoegd.");
-                    };
+                    }
+
                 } else {
                     showMessage("error", "Merk niet gevonden, nieuwe slotcar niet toegevoegd.");
-                };
+                }
+
             } else {
                 showMessage("error", "Klasse niet gevonden, nieuwe slotcar niet toegevoegd.");
-            };
+            }
+
         } else {
             showMessage("error", "Maker niet gevonden, nieuwe slotcar niet toegevoegd.");
-        };
+        }
+
     } else {
         showMessage("error", "Niet alle velden ingevuld, nieuwe slotcar niet toegevoegd.");
-    };
-};
+    }
+}

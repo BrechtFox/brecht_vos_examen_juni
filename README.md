@@ -26,10 +26,9 @@ De app bestaat uit twee pagina’s:
 ## ⚙️ Functionaliteiten
 
 - ✅ Nieuwe auto’s toevoegen  
-- ✏️ Auto’s bewerken  
 - ❌ Auto’s verwijderen  
 - 🔎 Filteren op merk, schaal of status  
-- ↕️ Sorteren (alfabetisch, prijs, jaar…)  
+- ↕️ Sorteren (alfabetisch, prijs…)  
 - 📊 Samenvatting bekijken (totaal aantal, gemiddelde prijs, totale waarde…)
 
 ---
@@ -54,12 +53,12 @@ Voorbeeld van een auto-object:
 ```js
 {
   maker: "BRM",
-  klasse: "minicar",
-  merk: "mini",
-  schaal: "1:24",
-  kleur: "Rood",
-  status: "nieuw",
-  prijs: 49.99
+  carClass: "minicar",
+  brand: "mini",
+  scale: "1:24",
+  color: "Rood",
+  state: "nieuw",
+  price: 49.99
 }
 ```
 
@@ -73,9 +72,6 @@ merk (bv. Porche, Ferrari...)
 prijs
 kleur
 staat (nieuw, gebruikt, beschadigd)
-
-Extra:
-favoriet (checkbox)
 
 ---
 

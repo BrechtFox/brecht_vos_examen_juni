@@ -2,6 +2,26 @@ main {
     width: 100%;
 }
 
+form {
+    background-color: var(--form-blue);
+    border-radius: 1em;
+    margin: 1em;
+    padding: 1em;
+    box-shadow: 4px 4px 8px rgba(0,0,0,0.3);
+}
+
+form legend {
+    font-size: 1.5em;
+}
+
+form p {
+    margin-left: 0.25em;
+}
+
+form label {
+    margin-left: 1em;
+}
+
 main h1 {
     text-align: center;
     padding: 0.25em;
@@ -98,5 +118,10 @@ ul.statistics {
 
     section.items {
         grid-template-columns: 1fr 1fr;
+    }
+    
+    form {
+        width: 800px;
+        align-self: center;
     }
 }
