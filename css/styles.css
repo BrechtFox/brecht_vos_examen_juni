@@ -27,7 +27,9 @@ body {
 }
 
 header {
-    background-color: var(--primary-blue);
+    background-image: linear-gradient(#00d 70%, #d7ddff);
+    margin-bottom: 1em;
+    padding: 2em;
 }
 
 header .wrapper {
@@ -84,13 +86,18 @@ header .wrapper li.active a {
     color: var(--text-blue);
 }
 
+body {
+    background-color: #d7ddff;
+}
+
 main {
     flex: 1;
 }
 
 footer {
-    background-color: var(--primary-blue);
-    padding: 0.5em;
+    background-image: linear-gradient(#d7ddff, #00d 30%);
+    margin-top: 1em;
+    padding: 2em;
 }
 
 footer p {
