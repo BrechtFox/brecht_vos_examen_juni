@@ -1,20 +1,34 @@
 <!DOCTYPE html>
 <html lang="nl">
+<!-- 
+    Slotcar Collection Tracker - Collection Display Page
+    Shows all collection items with search, filter, and sort functionality
+-->
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Collectie</title>
+    
+    <!-- Favicon -->
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <!-- icon is made by chatgpt, prompt: hey, can you generate an image for me, an icon for a "slotrace collection tracker", like a favicon, don't make it too detailed -->
+    
+    <!-- Stylesheets -->
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/collection.css">
+    
+    <!-- JavaScript Module -->
     <script src="JavaScript/script.js" type="module"></script>
 </head>
 
 <body>
+    <!-- ===== HEADER ===== -->
     <header>
         <div class="wrapper">
+            <!-- Logo -->
             <img src="img/logo.png" alt="Slotcar Collection Tracker">
+            
+            <!-- Navigation Menu -->
             <nav>
                 <ul>
                     <li class="active"><a href="index.html">Mijn Collectie</a></li>
@@ -23,92 +37,133 @@
             </nav>
         </div>
     </header>
-
-    <form class="sort">
-        <legend>Sorteer</legend>
-        <Label>
-            <input type="radio" name="sort" value="price-asc" checked>
-            Prijs (laag -> hoog)
-        </Label>
-        <br>
-        <label>
-            <input type="radio" name="sort" value="price-desc">
-            Prijs (hoog -> laag)
-        </label>
-    </form>
-
-    <form class="filter">
-        <legend>Filteren</legend>
-        <p>Makers</p>
-        <label>
-            <input id="brm" type="checkbox" name="maker-filter" value="BRM">
-            BRM
-        </label>
-        <br>
-        <label>
-            <input id="scaleauto" type="checkbox" name="maker-filter" value="ScaleAuto">
-            ScaleAuto
-        </label>
-        <br>
-        <label>
-            <input id="gecko" type="checkbox" name="maker-filter" value="Gecko">
-            Gecko
-        </label>
-        <p>Klassen</p>
-        <label>
-            <input type="checkbox" name="class-filter" value="minicar">
-            minicar
-        </label>
-        <br>
-        <label>
-            <input type="checkbox" name="class-filter" value="youngtimer">
-            youngtimer
-        </label>
-        <br>
-        <label>
-            <input type="checkbox" name="class-filter" value="GT-pro">
-            GT-pro
-        </label>
-        <p>Merk</p>
-        <label>
-            <input type="checkbox" name="brand-filter" value="porsche">
-            Porsche
-        </label>
-        <br>
-        <label>
-            <input type="checkbox" name="brand-filter" value="mini">
-            Mini
-        </label>
-        <br>
-        <label>
-            <input type="checkbox" name="brand-filter" value="viper">
-            Viper
-        </label>
-        <p>Schaal</p>
-        <label>
-            <input type="checkbox" name="scale-filter" value="1:24">
-            1:24
-        </label>
-        <br>
-        <label>
-            <input type="checkbox" name="scale-filter" value="1:32">
-            1:32
-        </label>
-    </form>
-
+    
+    <!-- ===== MAIN CONTENT ===== -->
     <main>
-        <h1>Mijn Collectie</h1>
-        <section class="items">
-        </section>
+        <!-- Collection Statistics -->
         <ul class="statistics">
+            <!-- Total Item Count -->
             <li class="collection-size">Collectie grootte:</li>
+            
+            <!-- Total Collection Value -->
             <li class="collection-value">Collectie waarde:</li>
+            
+            <!-- Average Price -->
             <li class="average-price">Gemiddelde prijs:</li>
         </ul>
+
+        <!-- Main Layout Container -->
+        <div class="content-wrapper">
+            <!-- ===== SIDEBAR (Search, Sort, Filter) ===== -->
+            <aside class="sidebar">
+                <!-- Search Form -->
+                <form class="search-form">
+                    <legend>Zoeken</legend>
+                    <label>
+                        Zoeken op maker:
+                        <input type="text" name="search" id="search" placeholder="">
+                    </label>
+                </form>
+                
+                <!-- Sort Form -->
+                <form class="sort">
+                    <legend>Sorteer</legend>
+                    <label>
+                        <input type="radio" name="sort" value="price-asc" checked>
+                        Prijs (laag -> hoog)
+                    </label>
+                    <br>
+                    <label>
+                        <input type="radio" name="sort" value="price-desc">
+                        Prijs (hoog -> laag)
+                    </label>
+                </form>
+
+                <!-- Filter Form -->
+                <form class="filter">
+                    <legend>Filteren</legend>
+                    
+                    <!-- Manufacturer Filters -->
+                    <p>Makers</p>
+                    <label>
+                        <input id="brm" type="checkbox" name="maker-filter" value="BRM">
+                        BRM
+                    </label>
+                    <br>
+                    <label>
+                        <input id="scaleauto" type="checkbox" name="maker-filter" value="ScaleAuto">
+                        ScaleAuto
+                    </label>
+                    <br>
+                    <label>
+                        <input id="gecko" type="checkbox" name="maker-filter" value="Gecko">
+                        Gecko
+                    </label>
+                    
+                    <!-- Class Filters -->
+                    <p>Klassen</p>
+                    <label>
+                        <input type="checkbox" name="class-filter" value="minicar">
+                        minicar
+                    </label>
+                    <br>
+                    <label>
+                        <input type="checkbox" name="class-filter" value="youngtimer">
+                        youngtimer
+                    </label>
+                    <br>
+                    <label>
+                        <input type="checkbox" name="class-filter" value="GT-pro">
+                        GT-pro
+                    </label>
+                    
+                    <!-- Brand Filters -->
+                    <p>Merk</p>
+                    <label>
+                        <input type="checkbox" name="brand-filter" value="porsche">
+                        Porsche
+                    </label>
+                    <br>
+                    <label>
+                        <input type="checkbox" name="brand-filter" value="mini">
+                        Mini
+                    </label>
+                    <br>
+                    <label>
+                        <input type="checkbox" name="brand-filter" value="viper">
+                        Viper
+                    </label>
+                    
+                    <!-- Scale Filters -->
+                    <p>Schaal</p>
+                    <label>
+                        <input type="checkbox" name="scale-filter" value="1:24">
+                        1:24
+                    </label>
+                    <br>
+                    <label>
+                        <input type="checkbox" name="scale-filter" value="1:32">
+                        1:32
+                    </label>
+                </form>
+            </aside>
+
+            <!-- ===== MAIN CONTENT AREA ===== -->
+            <div class="main-content">
+                <!-- Page Title -->
+                <h1>Mijn Collectie</h1>
+                
+                <!-- Collection Items Grid (populated by JavaScript) -->
+                <section class="items">
+                </section>
+            </div>
+        </div>
     </main>
 
+    <!-- ===== FOOTER ===== -->
     <footer>
         <div class="footer-content">
+            <!-- Copyright Info -->
             <p>&copy; 2026 Slotcar Collection Tracker</p>
             <p>Built for collectors</p>
         </div>

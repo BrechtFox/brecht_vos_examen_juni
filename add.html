@@ -1,21 +1,35 @@
 <!DOCTYPE html>
 <html lang="nl">
+<!-- 
+    Slotcar Collection Tracker - Add Items Page
+    Allows users to add new slotcar items to their collection
+-->
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Items Toevoegen</title>
+    
+    <!-- Favicon -->
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <!-- icon is made by chatgpt, prompt: hey, can you generate an image for me, an icon for a "slotrace collection tracker", like a favicon, don't make it too detailed -->
+    
+    <!-- Stylesheets -->
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/add.css">
+    
+    <!-- JavaScript Module -->
     <script src="JavaScript/add.js" type="module"></script>
 </head>
 
 <body>
+    <!-- ===== HEADER ===== -->
     <header>
         <div class="wrapper">
+            <!-- Logo -->
             <img src="img/logo.png" alt="Slotcar Collection Tracker">
+            
+            <!-- Navigation Menu -->
             <nav>
                 <ul>
                     <li><a href="index.html">Mijn Collectie</a></li>
@@ -25,37 +39,61 @@
         </div>
     </header>
 
+    <!-- ===== MAIN CONTENT ===== -->
     <main>
+        <!-- Page Title -->
         <h1>Items Toevoegen</h1>
+        
+        <!-- Form Container -->
         <div>
+            <!-- Add Item Form -->
             <form>
+                <!-- Manufacturer Field -->
                 <label for="maker">Maker:</label>
                 <input type="text" name="maker" id="maker">
+                
+                <!-- Car Class Field -->
                 <label for="car-class">Klasse:</label>
                 <input type="text" name="car-class" id="car-class">
+                
+                <!-- Brand/Model Field -->
                 <label for="brand">Merk:</label>
                 <input type="text" name="brand" id="brand">
+                
+                <!-- Scale Field -->
                 <label for="scale">Schaal:</label>
                 <input type="text" name="scale" id="scale">
+                
+                <!-- Color Field -->
                 <label for="color">Kleur:</label>
                 <input type="text" name="color" id="color">
+                
+                <!-- Price Field -->
                 <label for="price">prijs:</label>
                 <input type="number" name="price" id="price" step="0.01">
+                
+                <!-- Item Condition Dropdown -->
                 <label for="state">Staat:</label>
                 <select name="state" id="state">
                     <option value="new">Nieuw</option>
                     <option value="used">Gebruikt</option>
                     <option value="damaged">Beschadigd</option>
                 </select>
+                
+                <!-- Submit Button -->
                 <input type="submit" value="Toevoegen aan collectie">
+                
+                <!-- Status Messages (Error/Success) -->
                 <div id="message">
                 </div>
             </form>
         </div>
     </main>
 
+    <!-- ===== FOOTER ===== -->
     <footer>
         <div class="footer-content">
+            <!-- Copyright Info -->
             <p>&copy; 2026 Slotcar Collection Tracker</p>
             <p>Built for collectors</p>
         </div>

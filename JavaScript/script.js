@@ -1,17 +1,23 @@
 import { updateLS } from "./utils.js";
 
-// Load saved slotcars from localStorage or start with an empty array
+// Load saved slotcars from localStorage
+// If nothing exists yet, use an empty array
 let allSlotcars = JSON.parse(localStorage.getItem('savedSlotcars')) || [];
 
-// Renders all slotcars into the HTML list
+// =========================
+// RENDER SLOT CARS
+// =========================
+// Displays slotcars in the DOM
 function showSlotcars(list = allSlotcars) {
     const container = document.querySelector(".items");
 
+    // If no items → show message
     if (list.length === 0) {
         container.innerHTML = '<p>Nog geen slotcars gevonden</p>';
         return;
     }
 
+    // Generate HTML for each slotcar
     container.innerHTML = list.map(slot => `
         <article id="${slot.id}" class="${slot.state}">
             <div class="info">
@@ -27,33 +33,44 @@ function showSlotcars(list = allSlotcars) {
         </article>
     `).join('');
 
+    // Add click event to each delete button
     document.querySelectorAll(".delete-btn").forEach(button => {
         button.addEventListener("click", deleteSlotcar);
     });
 }
 
-// Deletes a slotcar from the list
+// =========================
+// DELETE SLOT CAR
+// =========================
+// Removes a slotcar from the array + localStorage
 function deleteSlotcar(e) {
     const id = parseInt(e.target.dataset.id);
 
-    // Remove item with matching ID
-    allSlotcars = allSlotcars.filter(item => item.id !== Number(id));
+    // Keep all cars except the one with this id
+    allSlotcars = allSlotcars.filter(item => item.id !== id);
 
-    // Save updated list and refresh UI
+    // Save updated list
     updateLS(allSlotcars);
+
+    // Re-apply filters and update stats
     applyFiltersAndSort();
     update_stats();
 }
 
-// Updates stats like total size, total value, and average price
-const update_stats = () => {
+// =========================
+// UPDATE STATISTICS
+// =========================
+// Updates collection size, total value and average price
+const update_stats = (list = allSlotcars) => {
+
+    // Total amount of cars
     document.querySelector('.collection-size').textContent =
-        `Collectie grootte: ${allSlotcars.length}`;
+        `Collectie grootte: ${list.length}`;
 
     let collectionValue = 0;
 
-    // Sum up all prices
-    allSlotcars.forEach(car => {
+    // Calculate total value
+    list.forEach(car => {
         collectionValue += Number(car.price);
     });
 
@@ -62,34 +79,47 @@ const update_stats = () => {
 
     const avgEl = document.querySelector('.average-price');
 
-    // If empty collection, avoid division by zero
-    if (allSlotcars.length === 0) {
+    // If no cars → avoid division by 0
+    if (list.length === 0) {
         avgEl.textContent = `Gemiddelde prijs: €0.00`;
         return;
     }
 
     // Calculate average price
-    const avg = collectionValue / allSlotcars.length;
+    const avg = collectionValue / list.length;
+
     avgEl.textContent = `Gemiddelde prijs: €${avg.toFixed(2)}`;
 };
 
+// =========================
+// FILTER + SORT LOGIC
+// =========================
 function applyFiltersAndSort() {
+
     const formFilter = document.querySelector(".filter");
     const formSort = document.querySelector(".sort");
 
+    // Read form values
     const filterData = new FormData(formFilter);
     const sortData = new FormData(formSort);
 
+    const searchValue = document.querySelector("#search").value.toLowerCase();
+
+    // Start with full list
     let result = [...allSlotcars];
 
-    // Get filter groups
+    // Get selected filters (arrays)
     const makers = filterData.getAll("maker-filter");
     const classes = filterData.getAll("class-filter");
     const brands = filterData.getAll("brand-filter");
     const scales = filterData.getAll("scale-filter");
 
+    // =========================
     // FILTERING
+    // =========================
     result = result.filter(car => {
+
+        // If no filter selected → allow all
         const makerMatch =
             makers.length === 0 || makers.includes(car.maker);
 
@@ -102,10 +132,16 @@ function applyFiltersAndSort() {
         const scaleMatch =
             scales.length === 0 || scales.includes(car.scale);
 
-        return makerMatch && classMatch && brandMatch && scaleMatch;
+        const searchMatch =
+            car.maker.toLowerCase().includes(searchValue);
+
+        // Only keep cars that match ALL conditions
+        return makerMatch && classMatch && brandMatch && scaleMatch && searchMatch;
     });
 
+    // =========================
     // SORTING
+    // =========================
     const sortValue = sortData.get("sort");
 
     if (sortValue === "price-asc") {
@@ -114,17 +150,21 @@ function applyFiltersAndSort() {
         result.sort((a, b) => b.price - a.price);
     }
 
-    // Render result
+    // Update UI
     showSlotcars(result);
-
-    // Optional: update stats based on filtered view
     update_stats(result);
 }
 
-// Initial render
+// =========================
+// INITIAL LOAD
+// =========================
 applyFiltersAndSort();
 update_stats();
 
-// Listen for filter + sort changes
+// =========================
+// EVENT LISTENERS
+// =========================
+// Re-run filtering when user interacts
 document.querySelector(".filter").addEventListener("change", applyFiltersAndSort);
 document.querySelector(".sort").addEventListener("change", applyFiltersAndSort);
+document.querySelector("#search").addEventListener("input", applyFiltersAndSort);

@@ -1,29 +1,34 @@
 import { updateLS } from "./utils.js";
 
-// Load existing slotcars from localStorage
+// Load existing slotcars
 let allSlotcars = JSON.parse(localStorage.getItem('savedSlotcars')) || [];
 
-// Handle form submission
+// Listen for form submit
 document.querySelector('form').addEventListener('submit', (e) => {
-    e.preventDefault();
+    e.preventDefault(); // Prevent page reload
     add();
 });
 
-// Shows success/error messages in the UI
+// =========================
+// SHOW MESSAGE
+// =========================
+// Displays success/error feedback
 function showMessage(type, message) {
     document.querySelector('#message').innerHTML =
         `<p class="${type}">${message}</p>`;
 }
 
-// Adds a new slotcar to the collection
+// =========================
+// ADD NEW SLOT CAR
+// =========================
 function add() {
 
-    // Generate new ID based on highest existing ID
+    // Generate unique ID
     let newId = allSlotcars.length > 0
         ? Math.max(...allSlotcars.map(item => item.id)) + 1
         : 1;
 
-    // Create new slotcar object from form inputs
+    // Create object from form inputs
     const newSlotcar = {
         maker: document.querySelector('#maker').value,
         carClass: document.querySelector('#car-class').value,
@@ -35,7 +40,10 @@ function add() {
         id: newId
     };
 
-    // Validate that all fields are filled in
+    // =========================
+    // VALIDATION
+    // =========================
+    // Check if all fields are filled
     if (newSlotcar.maker && newSlotcar.carClass && newSlotcar.brand &&
         newSlotcar.scale && newSlotcar.color &&
         newSlotcar.price && newSlotcar.state) {
@@ -43,7 +51,7 @@ function add() {
         // Validate maker
         if (["BRM", "ScaleAuto", "Gecko"].includes(newSlotcar.maker)) {
 
-            // Validate car class
+            // Validate class
             if (["minicar", "youngtimer", "GT-pro"].includes(newSlotcar.carClass)) {
 
                 // Validate brand
@@ -52,11 +60,16 @@ function add() {
                     // Validate scale
                     if (["1:24", "1:32"].includes(newSlotcar.scale)) {
 
-                        // Add to array and save
+                        // Add to list
                         allSlotcars.push(newSlotcar);
+
+                        // Save to localStorage
                         updateLS(allSlotcars);
 
                         showMessage("success", "Nieuwe slotcar toegevoegd.");
+
+                        // Reset form
+                        document.querySelector("form").reset();
 
                     } else {
                         showMessage("error", "Schaal bestaat niet, nieuwe slotcar niet toegevoegd.");
