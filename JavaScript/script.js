@@ -29,7 +29,7 @@ function showSlotcars(list = allSlotcars) {
                 <p class="price">€${slot.price}</p>
             </div>
             <img src="img/${slot.brand}_logo.png" alt="${slot.brand} logo">
-            <button class="delete-btn" data-id="${slot.id}">❌</button>
+            <button class="delete-btn" data-id="${slot.id}"><i class="fa-solid fa-trash"></i></button>
         </article>
     `).join('');
 

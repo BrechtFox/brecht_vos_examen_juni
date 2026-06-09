@@ -193,6 +193,7 @@ section.items article.damaged {
     color: white;
     border-radius: 8px;
     cursor: pointer;
+    height: 30px;
 }
 
 .delete-btn:hover {
